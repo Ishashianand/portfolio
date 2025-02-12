@@ -43,7 +43,6 @@
             z-index: 2;
         }
 
-        /* Animated Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -103,7 +102,6 @@
             transform: scaleX(1);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -115,20 +113,8 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: var(--neon-blue);
-            filter: blur(100px);
-            opacity: 0.1;
-            animation: float 10s infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(50px, 50px); }
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
@@ -137,86 +123,24 @@
             animation: glow 2s infinite;
         }
 
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 20px rgba(100, 255, 218, 0.5); }
-            50% { text-shadow: 0 0 40px rgba(100, 255, 218, 0.8); }
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 6rem 2rem;
-            background: var(--space-light);
-            position: relative;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .skill-card {
-            background: rgba(10, 25, 47, 0.5);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .project-card {
-            background: rgba(23, 42, 69, 0.5);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 10px;
-            padding: 2rem;
+        .hero p {
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
-            transition: transform 0.3s;
+            color: var(--neon-blue);
         }
 
-        .project-card:hover {
-            transform: scale(1.02);
-        }
-
-        /* Contact Section */
-        .contact {
+        .section {
             padding: 6rem 2rem;
-            background: var(--space-light);
-            text-align: center;
+            position: relative;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .section:nth-child(even) {
+            background: var(--space-light);
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .contact-item {
-            padding: 2rem;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            background: rgba(100, 255, 218, 0.1);
         }
 
         .section-title {
@@ -226,40 +150,50 @@
             color: var(--neon-blue);
         }
 
-        /* Animated Button */
-        .cosmic-btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
-            border-radius: 4px;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.3s;
-        }
-
-        .cosmic-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--neon-blue);
+        .education-card, .experience-card {
+            background: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
             transition: transform 0.3s;
-            z-index: -1;
         }
 
-        .cosmic-btn:hover {
-            color: var(--space-dark);
+        .education-card:hover, .experience-card:hover {
+            transform: translateY(-5px);
         }
 
-        .cosmic-btn:hover::before {
-            transform: translateX(100%);
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        /* Skill Tags */
+        .skill-card {
+            background: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card {
+            background: rgba(23, 42, 69, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
@@ -276,7 +210,66 @@
             border: 1px solid rgba(100, 255, 218, 0.2);
         }
 
-        /* Responsive Design */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: rgba(10, 25, 47, 0.5);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .contact-item i {
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .cosmic-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            border-radius: 4px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .cosmic-btn:hover {
+            color: var(--space-dark);
+            background: var(--neon-blue);
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -286,94 +279,153 @@
                 font-size: 2.5rem;
             }
 
-            .skills-grid, .contact-grid {
-                grid-template-columns: 1fr;
+            .section {
+                padding: 4rem 1rem;
             }
         }
 
-        /* Shooting Star Animation */
-        .shooting-star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--star-white);
-            animation: shoot 2s linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes shoot {
-            0% {
-                transform: translate(0, 0) rotate(45deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(200px, 200px) rotate(45deg);
-                opacity: 0;
-            }
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(100, 255, 218, 0.5); }
+            50% { text-shadow: 0 0 40px rgba(100, 255, 218, 0.8); }
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
+    <div class="star-field"></div>
+    <div class="galaxy-orb galaxy-orb-1"></div>
+    <div class="galaxy-orb galaxy-orb-2"></div>
+    <div class="cosmic-trail"></div>
     <div class="content">
         <nav class="navbar">
             <div class="nav-content">
                 <a href="#" class="logo">SA</a>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
 
         <section class="hero" id="about">
-            <div>
+            <div class="hero-content">
                 <h1>Shashi Anand</h1>
                 <p>Data Scientist & ML Engineer</p>
-                <a href="#contact" class="cosmic-btn">Explore My Universe</a>
+                <p class="subtitle">A results-driven professional with expertise in data analysis, machine learning, and business intelligence.</p>
+                <a href="#contact" class="cosmic-btn">Connect With Me</a>
             </div>
         </section>
 
-        <section class="skills" id="skills">
-            <h2 class="section-title">Technical Constellation</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Machine Learning</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">Deep Learning</span>
-                    </div>
+        <section class="section" id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-card">
+                    <h3>B. P. Mandal College of Engineering, Madhepura</h3>
+                    <p>B.Tech in Electrical and Electronics Engineering</p>
+                    <p>2020 - 2024</p>
+                    <p>CGPA: 7.4/10.0</p>
                 </div>
-                <div class="skill-card">
-                    <h3>Data Analysis</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
+                <div class="education-card">
+                    <h3>Sri Ramakrishna Sarada Ashrama, Hazaribagh</h3>
+                    <p>Senior Secondary Education, CBSE</p>
+                    <p>2018</p>
+                    <p>Percentage: 62.2%</p>
                 </div>
-                <div class="skill-card">
-                    <h3>Cloud & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
+                <div class="education-card">
+                    <h3>Holy Cross School, Hazaribagh</h3>
+                    <p>Matriculation, CBSE</p>
+                    <p>2016</p>
+                    <p>Percentage: 79%</p>
                 </div>
             </div>
         </section>
 
-        <section class="projects" id="projects">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-card">
-                <h3>IoT-Based Home Automation System</h3>
-                <p>A comprehensive smart home system leveraging IoT technologies and machine learning.</p>
+        <section class="section" id="experience">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-card">
+                    <h3>AI/ML Intern - NIELIT Calicut</h3>
+                    <p>Aug 2024 - Present</p>
+                    <ul>
+                        <li>Developing machine learning models for real-world applications using Python and TensorFlow</li>
+                        <li>Implementing deep learning architectures for pattern recognition and predictive analytics</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3>Salesforce Administrator Intern</h3>
+                    <p>Dec 2023 - Jan 2024</p>
+                    <ul>
+                        <li>Completed advanced Salesforce administration modules and earned Super Badges</li>
+                        <li>Configured and customized Salesforce platforms to optimize business processes</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <h3>Data Analytics Intern - Twowatis</h3>
+                    <p>Feb 2022 - Mar 2022</p>
+                    <ul>
+                        <li>Conducted comprehensive Netflix data analysis using Python analytics stack</li>
+                        <li>Generated actionable insights through statistical analysis and data visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Programming</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">C</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Data Science</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Cloud & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Jupyter</span>
+                            <span class="skill-tag">VS Code</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Business Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Salesforce</span>
+                            <span class="skill-tag">MS Office</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-card">
+                    <h3>IoT-Based Home Automation System</h3>
+                    <p>A comprehensive smart home system leveraging IoT technologies and machine learning. Achieved 90% reduction in manual intervention for home device management through integration of
+                
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">IoT</span>
